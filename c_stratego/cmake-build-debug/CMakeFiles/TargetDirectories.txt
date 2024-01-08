@@ -1,0 +1,3 @@
+/Users/mb/Desktop/icpt/stratego/cmake-build-debug/CMakeFiles/stratego.dir
+/Users/mb/Desktop/icpt/stratego/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mb/Desktop/icpt/stratego/cmake-build-debug/CMakeFiles/rebuild_cache.dir
