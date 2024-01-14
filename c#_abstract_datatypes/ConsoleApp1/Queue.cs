@@ -40,9 +40,3 @@ public struct Queue<T>
 
     public int Length => _data.Count;
 }
-
-struct Test
-{
-    private Test left;
-    private Test test;
-}

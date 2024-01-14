@@ -27,7 +27,9 @@ void deleteBoard(Board* board) {
     for (int x = 0; x < board->w; x++) {
         Tile** row = board->tiles[x];
         for (int y = 0; y < board->h; y++) {
-            free(row[y]);
+            // delete the tile if it exists
+            if (row[y] != NULL) 
+                free(row[y]);
         }
         free(row);
     }

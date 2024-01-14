@@ -57,12 +57,18 @@ func main() {
 	}
 
 	products = lo.Map(*data, func (item product, index int) string { return item.Name});
+	amountOfClients := 1;
 
-	for {
-		loop();
-		sleepAmount := calculateNextSleepAmount();
-		time.Sleep(sleepAmount);
+	for i := 0; i < amountOfClients; i++ {
+		go func () {
+			for {
+				loop();
+				sleepAmount := calculateNextSleepAmount();
+				time.Sleep(sleepAmount);
+			}
+		}();
 	}
+	
 }
 
 func calculateNextSleepAmount() time.Duration {
