@@ -8,6 +8,7 @@ import (
 	"io"
 	"math/rand"
 	"net/http"
+	"sync"
 	"time"
 
 	"github.com/samber/lo"
@@ -57,7 +58,11 @@ func main() {
 	}
 
 	products = lo.Map(*data, func (item product, index int) string { return item.Name});
-	amountOfClients := 1;
+
+	amountOfClients := 3;
+    var wg sync.WaitGroup
+	wg.Add(amountOfClients);
+
 
 	for i := 0; i < amountOfClients; i++ {
 		go func () {
@@ -66,9 +71,10 @@ func main() {
 				sleepAmount := calculateNextSleepAmount();
 				time.Sleep(sleepAmount);
 			}
+			wg.Done()
 		}();
 	}
-	
+	wg.Wait();
 }
 
 func calculateNextSleepAmount() time.Duration {
